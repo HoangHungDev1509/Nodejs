@@ -1,0 +1,36 @@
+<div class="container w-50 p-5 my-5 shadow">
+
+
+    {{!-- Title --}}
+    <h1 class="text-center">{{task}}</h1>
+    {{!-- Form --}}
+    <form method="post" action="{{actionTask}}">
+        <div class="mb-3">
+            <label for="inputUsername" class="form-label">Username</label>
+            <input name="username" type="text" class="form-control" aria-describedby="usernameHelp" required>
+            <div id="usernameHelp" class="form-text">We'll never share your username with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">{{task}}</button>
+    </form>
+    {{!-- Notify --}}
+    <div class="row">
+        <code>{{notify}}</code>
+    </div>
+    {{#if optionsRegister}}
+    {{!-- Go to Sign up --}}
+    <div class="row">
+        <a href="/api/signup" class="text-secondary text-center text-decoration-none mt-3">or create new account
+            here</a>
+    </div>
+    {{else}}
+    {{!-- Go to Sign in --}}
+    <div class="row">
+        <a href="/api/sig nin" class="text-secondary text-center text-decoration-none mt-3">Comeback to Sign in</a>
+    </div>
+    {{/if}}
+
+</div>

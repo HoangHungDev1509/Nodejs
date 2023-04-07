@@ -1,0 +1,64 @@
+<div class="row">
+
+
+    {{!-- Nav bar --}}
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow px-3">
+        <div class="container-fluid">
+
+            {{!-- collapse button --}}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {{!-- Nav bar --}}
+            <div class="collapse navbar-collapse">
+                {{!-- Left --}}
+                <a class="navbar-brand" {{#if token}}href="/api/book" {{else}}href="/" {{/if}}>
+                    <img src="/img/logo.png" alt="Avatar Logo" width="88px" class="">
+                </a>
+
+                {{!-- Center --}}
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {{#if userActive}}active{{/if}}" {{#if token}}href="/users/"
+                            {{else}}href="/" {{/if}}>User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{#if productActive}}active{{/if}}" {{#if token}}href="/api/book"
+                            {{else}}href="" {{/if}}>Book</a>
+                    </li>
+                </ul>
+
+                {{!-- Right --}}
+                {{#if token}}
+                <ul class="navbar-nav ">
+                    <li class="nav-item dropdown  ">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{{user.username}}</a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="btn dropdown-item " href="/"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i> Sign out</a>
+                            </li>
+                            <li><a class="btn dropdown-item" href="#"><i class="fa-solid fa-gears"></i>
+                                    Settings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                {{else}}
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn  border-dark mx-1 {{#if signInActive}}active{{/if}}"
+                            href="/api/signin">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn  border-dark mx-1 {{#if signUpActive}}active{{/if}}"
+                            href="/api/signup">Sign up</a>
+                    </li>
+                </ul>
+                {{/if}}
+            </div>
+
+        </div>
+    </nav>
+
+
+</div>
